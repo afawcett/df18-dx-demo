@@ -15,7 +15,7 @@ Testing via CURL
 ================
 
 ```
-curl  https://velocity-platform-96-dev-ed.cs66.my.salesforce.com/services/apexrest/flowresponder/eventsignup/41512342323 -X POST -d '{}' -H "Content-Type: application/json" -H "Authorization: Bearer yourtokenhere"
-curl  https://velocity-platform-96-dev-ed.cs66.my.salesforce.com/services/apexrest/flowresponder/eventsignup/41512342323 -X POST -d '{ "userResponse": "Yes"}' -H "Content-Type: application/json" -H "Authorization: Bearer yourtokenhere"
-curl  https://velocity-platform-96-dev-ed.cs66.my.salesforce.com/services/apexrest/flowresponder/eventsignup/41512342323 -X POST -d '{ "userResponse": "Beer Monster"}' -H "Content-Type: application/json" -H "Authorization: Bearer yourtokenhere"
+curl  https://yourorgdomain/services/apexrest/flowresponder/eventsignup/41512342323 -X POST -d '{}' -H "Content-Type: application/json" -H "Authorization: Bearer yourtokenhere"
+curl  https://yourorgdomain/services/apexrest/flowresponder/eventsignup/41512342323 -X POST -d '{ "userResponse": "Yes"}' -H "Content-Type: application/json" -H "Authorization: Bearer yourtokenhere"
+curl  https://yourorgdomain/services/apexrest/flowresponder/eventsignup/41512342323 -X POST -d '{ "userResponse": "Beer Monster"}' -H "Content-Type: application/json" -H "Authorization: Bearer yourtokenhere"
 ```
