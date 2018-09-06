@@ -1,0 +1,11 @@
+{
+  "name": "sfdx-twilio",
+  "version": "1.0.0",
+  "author": "Wade Wegner <wade.wegner@gmail.com>",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "twilio": "^3.19.2"
+  },
+  "devDependencies": {}
+}
