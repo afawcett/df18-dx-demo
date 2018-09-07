@@ -3,6 +3,7 @@ export FORCE_SHOW_SPINNER=
 
 created="$(sfdx force:org:create -s -f config/project-scratch-def.json --json)"
 pushed="$(sfdx force:source:push --json)"
+sampledata="$(sfdx force:data:tree:import -f ./sampledata/Campaign-Event.json)"
 display="$(sfdx force:org:display --verbose --json)"
 sfdxAuthUrl="$(echo ${display} | jq -r .result.sfdxAuthUrl)"
 

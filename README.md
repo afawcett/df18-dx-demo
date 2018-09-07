@@ -41,7 +41,7 @@ Then install your Node dependencies:
 yarn install
 ```
 
-Finally, run the setup script:
+Run the setup script:
 
 ```
 ./setup.sh
@@ -52,3 +52,15 @@ This will create your scratch org, push the source, and then create a `authUrl.j
 You can run the Twilio Function code locally with `node test/local.js`.
 
 To test against the deployed Twilio code, run `node test/sms.js`. Of course, you have to manually deploy updates to Node code.
+
+# Required Setup Steps
+
+Enable `Allow Users to Relate Multiple Contacts to Tasks and Events under Activity Settings` in Setup
+
+Edit the layout for the ``Event`` object and to add the `Name` related list
+
+If you do not run the setup.sh script above run the following command to insert sample data
+
+```
+sfdx force:data:tree:import -f ./sampledata/Campaign-Event.json
+```

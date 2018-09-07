@@ -1,0 +1,24 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Campaign",
+                "referenceId": "CampaignRef1"
+            },
+            "Name": "Promote Wagner Beer",
+            "Events": {
+                "records": [
+                    {
+                        "attributes": {
+                            "type": "Event",
+                            "referenceId": "EventRef1"
+                        },
+                        "ActivityDateTime": "2018-09-07T04:00:00.000+0000",
+                        "DurationInMinutes": 60,
+                        "Subject": "Dreamforce Beers"
+                    }
+                ]
+            }
+        }
+    ]
+}

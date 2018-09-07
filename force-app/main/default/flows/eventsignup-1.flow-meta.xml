@@ -43,13 +43,26 @@
     <assignments>
         <name>SayDone</name>
         <label>SayDone</label>
-        <locationX>505</locationX>
-        <locationY>430</locationY>
+        <locationX>1010</locationX>
+        <locationY>520</locationY>
         <assignmentItems>
             <assignToReference>flow_say</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>See you down the pub!</stringValue>
+                <stringValue>You are signed up to {!EventSubject}. See you down the pub!</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>SayNoEvent</name>
+        <label>SayNoEvent</label>
+        <locationX>694</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>flow_say</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Sorry no beer related events at this moment</stringValue>
             </value>
         </assignmentItems>
     </assignments>
@@ -66,6 +79,28 @@
             </value>
         </assignmentItems>
     </assignments>
+    <decisions>
+        <name>EventFound</name>
+        <label>Event Found</label>
+        <locationX>699</locationX>
+        <locationY>411</locationY>
+        <defaultConnector>
+            <targetReference>SayNoEvent</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>HasEvent</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>EventId</leftValueReference>
+                <operator>NotEqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>CreateContact</targetReference>
+            </connector>
+            <label>Has Event</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>HasDescribe</name>
         <label>HasDescribe</label>
@@ -127,7 +162,7 @@
                 <operator>NotEqualTo</operator>
             </conditions>
             <connector>
-                <targetReference>SayDone</targetReference>
+                <targetReference>FindEvent</targetReference>
             </connector>
             <label>GivenName</label>
         </rules>
@@ -135,7 +170,111 @@
     <interviewLabel>eventsignup {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Event Signup</label>
     <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>CreateContact</name>
+        <label>Contact</label>
+        <locationX>702</locationX>
+        <locationY>522</locationY>
+        <assignRecordIdToReference>ContactId</assignRecordIdToReference>
+        <connector>
+            <targetReference>EventRelation</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>userName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MobilePhone</field>
+            <value>
+                <elementReference>flow_ctx</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordCreates>
+    <recordCreates>
+        <name>EventRelation</name>
+        <label>Event Relation</label>
+        <locationX>856</locationX>
+        <locationY>520</locationY>
+        <connector>
+            <targetReference>SayDone</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>EventId</field>
+            <value>
+                <elementReference>EventId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsInvitee</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>IsParent</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RelationId</field>
+            <value>
+                <elementReference>ContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>EventRelation</object>
+    </recordCreates>
+    <recordLookups>
+        <name>FindEvent</name>
+        <label>Find Event</label>
+        <locationX>537</locationX>
+        <locationY>415</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>EventFound</targetReference>
+        </connector>
+        <filters>
+            <field>Subject</field>
+            <operator>Contains</operator>
+            <value>
+                <stringValue>Beer</stringValue>
+            </value>
+        </filters>
+        <object>Event</object>
+        <outputAssignments>
+            <assignToReference>EventId</assignToReference>
+            <field>Id</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>EventSubject</assignToReference>
+            <field>Subject</field>
+        </outputAssignments>
+    </recordLookups>
     <startElementReference>HasDescribe</startElementReference>
+    <variables>
+        <name>ContactId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>EventId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>EventSubject</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
     <variables>
         <description>Please let us know your name</description>
         <name>flow_ask</name>
