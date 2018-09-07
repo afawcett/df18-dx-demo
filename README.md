@@ -59,7 +59,7 @@ Enable `Allow Users to Relate Multiple Contacts to Tasks and Events under Activi
 
 Edit the layout for the ``Event`` object and to add the `Name` related list
 
-If you do not run the setup.sh script above run the following command to insert sample data
+If you did not run the setup.sh script above run the following command to insert sample data
 
 ```
 sfdx force:data:tree:import -f ./sampledata/Campaign-Event.json
