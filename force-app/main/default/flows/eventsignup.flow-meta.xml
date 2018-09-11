@@ -43,8 +43,8 @@
     <assignments>
         <name>SayDone</name>
         <label>SayDone</label>
-        <locationX>1010</locationX>
-        <locationY>520</locationY>
+        <locationX>1002</locationX>
+        <locationY>380</locationY>
         <assignmentItems>
             <assignToReference>flow_say</assignToReference>
             <operator>Assign</operator>
@@ -199,7 +199,7 @@
         <locationX>856</locationX>
         <locationY>520</locationY>
         <connector>
-            <targetReference>SayDone</targetReference>
+            <targetReference>SignupEvent</targetReference>
         </connector>
         <inputAssignments>
             <field>EventId</field>
@@ -226,6 +226,34 @@
             </value>
         </inputAssignments>
         <object>EventRelation</object>
+    </recordCreates>
+    <recordCreates>
+        <name>SignupEvent</name>
+        <label>SignupEvent</label>
+        <locationX>1004</locationX>
+        <locationY>520</locationY>
+        <connector>
+            <targetReference>SayDone</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>ContactId__c</field>
+            <value>
+                <elementReference>ContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>EventId__c</field>
+            <value>
+                <elementReference>EventId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Message__c</field>
+            <value>
+                <stringValue>Great news! {!userName} just signed up to your event {!EventSubject}.</stringValue>
+            </value>
+        </inputAssignments>
+        <object>EventSignup__e</object>
     </recordCreates>
     <recordLookups>
         <name>FindEvent</name>
@@ -254,7 +282,7 @@
         </outputAssignments>
     </recordLookups>
     <startElementReference>HasDescribe</startElementReference>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>ContactId</name>
         <dataType>String</dataType>
