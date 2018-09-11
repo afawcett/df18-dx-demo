@@ -254,6 +254,7 @@
         </outputAssignments>
     </recordLookups>
     <startElementReference>HasDescribe</startElementReference>
+    <status>Active</status>
     <variables>
         <name>ContactId</name>
         <dataType>String</dataType>
