@@ -1,0 +1,5 @@
+<aura:component implements="lightning:backgroundUtilityItem">
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <lightning:empApi aura:id="empApi" /> 
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+</aura:component>
