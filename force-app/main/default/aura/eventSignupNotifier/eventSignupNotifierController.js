@@ -15,7 +15,7 @@
                 JSON.stringify(message.data.payload));
             component.find('notifLib').showToast({
                 "variant": "success",
-                "title": "New Event Signup",
+                "title": "New Event Registration",
                 "message": message.data.payload.Message__c
               });                 
         }.bind(this);

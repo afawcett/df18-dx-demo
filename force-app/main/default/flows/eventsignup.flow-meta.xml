@@ -250,7 +250,7 @@
         <inputAssignments>
             <field>Message__c</field>
             <value>
-                <stringValue>Great news! {!userName} just signed up to your event {!EventSubject}.</stringValue>
+                <stringValue>Great news! {!userName} just registered for your event {!EventSubject}.</stringValue>
             </value>
         </inputAssignments>
         <object>EventSignup__e</object>
