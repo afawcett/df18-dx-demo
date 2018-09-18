@@ -71,5 +71,6 @@ Edit the layout for the ``Event`` object and to add the `Name` related list
 If you did not run the setup.sh script above run the following command to insert sample data
 
 ```
+sfdx force:user:permset:assign -n UntappedIntegration
 sfdx force:data:tree:import -f ./sampledata/Campaign-Event.json
 ```
