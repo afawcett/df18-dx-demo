@@ -12,7 +12,7 @@ invokeCmd() {
 invokeCmd "sfdx force:org:create -s -f config/project-scratch-def.json --json"
 invokeCmd "sfdx force:source:push --json"
 invokeCmd "sfdx force:data:tree:import -f ./sampledata/Campaign-Event.json"
-invokeCmd "sfdx force:org:display --verbose --json"
+invokeCmd sfdxAuthUrl="$(sfdx force:org:display --verbose --json | jq -r .result.sfdxAuthUrl)"
 
 file="module.exports = {
   authUrl:
