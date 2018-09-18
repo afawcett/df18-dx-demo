@@ -8,6 +8,7 @@ FlowResponder enables the Admin to build basic chat behavior with Autolaunch Flo
 System.debug((String) FlowResponder.runFlow('eventsignup', '41512345678', null));
 System.debug((String) FlowResponder.runFlow('eventsignup', '41512345678', 'Yes'));
 System.debug((String) FlowResponder.runFlow('eventsignup', '41512345678', 'Beer Monster'));
+System.debug(BeerAction.topBeers(new List<BeerAction.Request> { new BeerAction.Request('5995431') })[0].topBeer);
 ```
 
 # Testing via CURL
