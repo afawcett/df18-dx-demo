@@ -1,11 +1,18 @@
 export FORCE_SPINNER_DELAY=
 export FORCE_SHOW_SPINNER=
 
-created="$(sfdx force:org:create -s -f config/project-scratch-def.json --json)"
-pushed="$(sfdx force:source:push --json)"
-sampledata="$(sfdx force:data:tree:import -f ./sampledata/Campaign-Event.json)"
-display="$(sfdx force:org:display --verbose --json)"
-sfdxAuthUrl="$(echo ${display} | jq -r .result.sfdxAuthUrl)"
+BLUE=`tput setaf 4`
+RESET=`tput sgr0`
+
+invokeCmd() {
+  echo "CMD: ${BLUE}$1${RESET}"
+  eval $1
+}
+
+invokeCmd "sfdx force:org:create -s -f config/project-scratch-def.json --json"
+invokeCmd "sfdx force:source:push --json"
+invokeCmd "sfdx force:data:tree:import -f ./sampledata/Campaign-Event.json"
+invokeCmd "sfdx force:org:display --verbose --json"
 
 file="module.exports = {
   authUrl:
@@ -13,3 +20,4 @@ file="module.exports = {
 };"
 
 echo "$file" > "authUrl.js"
+ff
