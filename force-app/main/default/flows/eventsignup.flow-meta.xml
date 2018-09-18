@@ -3,7 +3,7 @@
     <actionCalls>
         <name>GetBeer</name>
         <label>Get Beer</label>
-        <locationX>549</locationX>
+        <locationX>548</locationX>
         <locationY>519</locationY>
         <actionName>BeerAction</actionName>
         <actionType>apex</actionType>
@@ -25,7 +25,7 @@
         <name>AskForBeer</name>
         <label>AskForBeer</label>
         <locationX>182</locationX>
-        <locationY>310</locationY>
+        <locationY>309</locationY>
         <assignmentItems>
             <assignToReference>flow_ask</assignToReference>
             <operator>Assign</operator>
@@ -307,7 +307,7 @@
         </outputAssignments>
     </recordLookups>
     <startElementReference>HasDescribe</startElementReference>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>ContactId</name>
         <dataType>String</dataType>

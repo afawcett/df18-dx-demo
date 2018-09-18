@@ -37,6 +37,10 @@
                 <behavior>Edit</behavior>
                 <field>UntappedVenueId__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>UntappedVenue__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -112,6 +116,8 @@
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
+        <layoutColumns/>
+        <layoutColumns/>
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
