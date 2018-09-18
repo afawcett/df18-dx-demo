@@ -30,12 +30,14 @@ global with sharing class BeerAction {
     }
 
     global class Request {
+        public Request() {} 
         public Request(String venueId) { this.venueId = venueId; }
         @InvocableVariable(required=true)
         public String venueId;
     }
 
     global class Response {
+        public Response() {} 
         public Response(String topBeer) { this.topBeer = topBeer; }
         @InvocableVariable(required=true)
         public String topBeer;

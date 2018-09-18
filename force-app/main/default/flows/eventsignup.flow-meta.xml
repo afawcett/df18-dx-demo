@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>GetBeer</name>
+        <label>Get Beer</label>
+        <locationX>549</locationX>
+        <locationY>519</locationY>
+        <actionName>BeerAction</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>CreateContact</targetReference>
+        </connector>
+        <inputParameters>
+            <name>venueId</name>
+            <value>
+                <elementReference>VenueId</elementReference>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>topBeer</assignToReference>
+            <name>topBeer</name>
+        </outputParameters>
+    </actionCalls>
     <assignments>
         <name>AskForBeer</name>
         <label>AskForBeer</label>
@@ -43,13 +64,13 @@
     <assignments>
         <name>SayDone</name>
         <label>SayDone</label>
-        <locationX>1002</locationX>
-        <locationY>380</locationY>
+        <locationX>1000</locationX>
+        <locationY>410</locationY>
         <assignmentItems>
             <assignToReference>flow_say</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>You are signed up to {!EventSubject}. See you down the pub!</stringValue>
+                <stringValue>You are signed up to {!EventSubject}. See you down the pub for a pint of {!topBeer}.</stringValue>
             </value>
         </assignmentItems>
     </assignments>
@@ -96,7 +117,7 @@
                 <operator>NotEqualTo</operator>
             </conditions>
             <connector>
-                <targetReference>CreateContact</targetReference>
+                <targetReference>GetBeer</targetReference>
             </connector>
             <label>Has Event</label>
         </rules>
@@ -280,6 +301,10 @@
             <assignToReference>EventSubject</assignToReference>
             <field>Subject</field>
         </outputAssignments>
+        <outputAssignments>
+            <assignToReference>VenueId</assignToReference>
+            <field>UntappedVenueId__c</field>
+        </outputAssignments>
     </recordLookups>
     <startElementReference>HasDescribe</startElementReference>
     <status>Draft</status>
@@ -348,10 +373,24 @@
         <isOutput>true</isOutput>
     </variables>
     <variables>
+        <name>topBeer</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
         <name>userName</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>VenueId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>
