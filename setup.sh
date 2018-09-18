@@ -20,4 +20,3 @@ file="module.exports = {
 };"
 
 echo "$file" > "authUrl.js"
-ff
