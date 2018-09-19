@@ -4,3 +4,4 @@
 authUrl.js
 node_modules
 yarn.lock
+force-app/main/default/customMetadata/UntappedAPIConnection.Default.md-meta.xml
