@@ -38,13 +38,6 @@ exports.handler = function(context, event, callback) {
   console.log("isJsonMessage", isJsonMessage);
   console.log("authUrl", authUrl);
 
-  // authUrl = authUrl.replace("force://", "");
-
-  // var salesforceUrl = `https://${split2[1]}`;
-  // var clientId = split[0];
-  // var clientSecret = split[1];
-  // var refreshToken = split2[0];
-
   var fromPhone = event.From;
   var toPhone = event.To;
 
