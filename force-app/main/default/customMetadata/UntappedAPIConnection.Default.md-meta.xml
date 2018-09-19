@@ -4,10 +4,10 @@
     <protected>false</protected>
     <values>
         <field>ClientId__c</field>
-        <value xsi:type="xsd:string">[yourclientid]</value>
+        <value xsi:type="xsd:string">yourclientid</value>
     </values>
     <values>
         <field>ClientSecret__c</field>
-        <value xsi:type="xsd:string">[yourclientsecret]</value>
+        <value xsi:type="xsd:string">yourclientsecret</value>
     </values>
 </CustomMetadata>
