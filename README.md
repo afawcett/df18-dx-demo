@@ -64,13 +64,8 @@ To test against the deployed Twilio code, run `node test/sms.js`. Of course, you
 
 # Required Setup Steps
 
-Enable `Allow Users to Relate Multiple Contacts to Tasks and Events under Activity Settings` in Setup
-
-Edit the layout for the ``Event`` object and to add the `Name` related list
-
-If you did not run the setup.sh script above run the following command to insert sample data
+Run the setup script:
 
 ```
-sfdx force:user:permset:assign -n UntappedIntegration
-sfdx force:data:tree:import -f ./sampledata/Campaign-Event.json
+./setup.sh
 ```
