@@ -41,7 +41,15 @@ exports.handler = function(context, event, callback) {
   var fromPhone = event.From;
   var toPhone = event.To;
 
-  // TODO: form data
+  var form = {
+    grant_type: "refresh_token",
+    client_id: clientId,
+    client_secret: clientSecret,
+    refresh_token: refreshToken
+  };
+
+  var formData = querystring.stringify(form);
+  var contentLength = formData.length;
 
   request(
     {
@@ -49,7 +57,7 @@ exports.handler = function(context, event, callback) {
         "Content-Length": contentLength,
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      // TODO: url
+      uri: salesforceUrl + "/services/oauth2/token",
       body: formData,
       method: "POST"
     },
@@ -59,7 +67,8 @@ exports.handler = function(context, event, callback) {
       console.log("bodyAuth", bodyAuth);
 
       if (resAuth.statusCode == 200) {
-        // TODO: access token
+        var authResponse = JSON.parse(bodyAuth);
+        var accessToken = authResponse.access_token;
 
         request(
           {
@@ -67,7 +76,10 @@ exports.handler = function(context, event, callback) {
               "Content-Type": "application/json",
               Authorization: `Bearer ${accessToken}`
             },
-            // TODO: apex REST api URL
+            uri:
+              salesforceUrl +
+              "/services/apexrest/flowresponder/eventsignup/" +
+              fromPhone,
             body: `{ "userResponse": "${body}"}`,
             method: "POST"
           },
@@ -81,10 +93,8 @@ exports.handler = function(context, event, callback) {
               var client;
 
               try {
-                // running in Twilio
                 client = context.getTwilioClient();
               } catch (e) {
-                // runnning locally
                 const twilioAccountSid = context.TWILIO_ACCOUNT_SID;
                 const twilioAuthToken = context.TWILIO_AUTH_TOKEN;
 
