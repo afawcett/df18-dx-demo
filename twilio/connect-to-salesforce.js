@@ -94,11 +94,7 @@ exports.handler = function(context, event, callback) {
               console.log("Sending response");
 
               client.messages
-                .create({
-                  from: toPhone,
-                  to: fromPhone,
-                  body: `${flowResponse}`
-                })
+                // TODO: send SMS
                 .catch(e => {
                   console.error("Got an error:", e.code, e.message);
                 })
