@@ -1,10 +1,10 @@
-# Flow Responder Service
+# Dreamforce 2018 - DX Demo
 
-FlowResponder enables the Admin to build basic chat behavior with Autolaunch Flows
+Cool demo showing various platform features for the Dreamforce 2018 DX demo session.
 
 # Testing via Apex
 
-NOTE: Run each of these one at a time.
+Run each of these one at a time to simulate receiving the SMS messages.
 
 ```
 System.debug((String) FlowResponder.runFlow('eventsignup', '41512345678', null));
@@ -20,6 +20,8 @@ System.debug(BeerAction.topBeers(new List<BeerAction.Request> { new BeerAction.R
 ```
 
 # Testing via CURL
+
+Run each of these one at a time to simulate receiving the SMS messages.
 
 ```
 curl  https://yourorgdomain/services/apexrest/flowresponder/eventsignup/41512342323 -X POST -d '{}' -H "Content-Type: application/json" -H "Authorization: Bearer yourtokenhere"
