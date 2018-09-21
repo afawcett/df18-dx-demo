@@ -1,0 +1,22 @@
+<aura:component controller="EventSignupSummaryController" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="sub" type="Object"/>    
+    <aura:attribute name="summary" type="EventSignupSummary"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <lightning:empApi aura:id="empApi" /> 
+    <lightning:card>
+        <aura:set attribute="title">
+            <b>Latest Event Registrations</b>
+        </aura:set>        
+        <p class="slds-p-horizontal_small">        
+            <lightning:layout horizontalAlign="spread">
+                <lightning:layoutItem padding="around-small">
+                    <lightning:avatar src="" initials="{!v.summary.Count}" fallbackIconName="standard:event" alternativeText="Salesforce" size="large"/>
+                </lightning:layoutItem>                    
+                <lightning:layoutItem padding="around-small">
+                    <lightning:datatable keyField="Name" data="{!v.summary.Names}" columns="{! v.columns }" hideCheckboxColumn="true"/>
+                </lightning:layoutItem>                    
+            </lightning:layout>            
+        </p>
+    </lightning:card>
+</aura:component>	
