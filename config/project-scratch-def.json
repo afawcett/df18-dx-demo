@@ -1,7 +1,7 @@
 {
-    "orgName": "afawcett Company",
-    "orgPreferences" : {
-        "enabled": ["S1DesktopEnabled"]
-    },
-    "template": "0TTB0000000sbly"
+  "orgName": "flowResponder Company",
+  "orgPreferences": {
+    "enabled": ["S1DesktopEnabled"]
+  },
+  "template": "0TTB0000000sbly"
 }

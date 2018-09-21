@@ -9,7 +9,6 @@ invokeCmd() {
   eval $1
 }
 
-
 #### setup
 
 invokeCmd "yarn install"
