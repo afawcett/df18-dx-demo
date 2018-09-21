@@ -14,6 +14,7 @@
                     <lightning:avatar src="" initials="{!v.summary.Count}" fallbackIconName="standard:event" alternativeText="Salesforce" size="large"/>
                 </lightning:layoutItem>                    
                 <lightning:layoutItem padding="around-small">
+                    <lightning:formattedText value="Top 10 most recent."/>
                     <lightning:datatable keyField="Name" data="{!v.summary.Names}" columns="{! v.columns }" hideCheckboxColumn="true"/>
                 </lightning:layoutItem>                    
             </lightning:layout>            

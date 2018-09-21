@@ -206,12 +206,6 @@
                 <elementReference>userName</elementReference>
             </value>
         </inputAssignments>
-        <inputAssignments>
-            <field>MobilePhone</field>
-            <value>
-                <elementReference>flow_ctx</elementReference>
-            </value>
-        </inputAssignments>
         <object>Contact</object>
     </recordCreates>
     <recordCreates>
@@ -307,7 +301,7 @@
         </outputAssignments>
     </recordLookups>
     <startElementReference>HasDescribe</startElementReference>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>ContactId</name>
         <dataType>String</dataType>
