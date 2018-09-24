@@ -32,7 +32,7 @@ invokeCmd "sfdx force:user:permset:assign -n UntappedIntegration --json"
 invokeCmd "sfdx force:user:permset:assign -n EventHome --json"
 invokeCmd "sfdx force:data:tree:import -f ./sampledata/Campaign-Event.json --json"
 invokeCmd sfdxAuthUrl="$(sfdx force:org:display --verbose --json | jq -r .result.sfdxAuthUrl)"
-invokeCmd "sfdx force:org:open -p /lightning/n/Events_Home"
+invokeCmd "sfdx force:org:open -p /lightning/o/Campaign/list"
 
 file="module.exports = {
   authUrl:
