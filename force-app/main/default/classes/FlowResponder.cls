@@ -44,7 +44,7 @@ global with sharing class FlowResponder {
         flowInputs.put('flow_say', null);
         // Run the flow
         System.debug('Flow Inputs:' + flowInputs);
-        // TODO: Dynamically call flow
+        Flow.Interview flow = Flow.Interview.createInterview(flowName, flowInputs);
         flow.start();
         Map<String, Object> flowOutputs = new Map<String, Object>();
         for(String outputVar : flowInputs.keySet()) {
