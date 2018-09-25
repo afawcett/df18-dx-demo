@@ -70,7 +70,7 @@
             <assignToReference>flow_say</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>You are signed up to {!EventSubject}. See you down the pub for a pint of {!topBeer} at ThirstyBear Brewing Company, 3915, 661 Howard St from 6:30pm</stringValue>
+                <stringValue>You are signed up to {!EventSubject}. See you down the pub for a pint of {!topBeer} at ThirstyBear Brewing Company, 661 Howard St., around 6:30pm.</stringValue>
             </value>
         </assignmentItems>
     </assignments>
